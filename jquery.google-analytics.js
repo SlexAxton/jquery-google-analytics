@@ -185,8 +185,8 @@
       
       debug('Tracking ' + event_name + ' ' + message);
 
-      // Bind the event to this element.
-      element.bind(event_name + '.track', function() {       
+      // Bind the event to this element - using live() event delegation.
+      element.live(event_name + '.track', function() {       
         // Should we skip internal links? REFACTOR
         var skip = settings.skip_internal && (element[0].hostname == location.hostname);
       
